@@ -1,0 +1,25 @@
+.nav-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 992px) {
+    .input-box {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 576px) {
+    .input-box {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .input-box {
+        width: 250px;
+    }
+}
