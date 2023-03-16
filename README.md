@@ -2,12 +2,10 @@
 This is a simple weather app built using React.js, OpenWeatherMap API, and OpenCage API. It allows users to search for the current weather conditions of any city in the world.
 
 ## Features
-Search for weather conditions by city name
-Display of current temperature, weather condition, and weather icon
-Celsius/Fahrenheit toggle for temperature display
-Display of additional weather details such as humidity, pressure, and wind speed
-Geocoding of city name to get its latitude and longitude using OpenCage API
-Use of latitude and longitude to get current weather conditions using OpenWeatherMap API
+- Search for weather conditions by city name
+- Display of current temperature,and weather condition
+- Geocoding of city name to get its latitude and longitude using OpenCage API
+- Use of latitude and longitude to get current weather conditions using OpenWeatherMap API
 
 ## Technologies Used
 - React.js
