@@ -3,8 +3,12 @@ import { getLocation } from './locationService';
 import {LOCATION_API_KEY, WEATHER_API_KEY} from './apiKeys'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { Navbar, Container, Form, Button  } from 'react-bootstrap';
+import { Navbar, Container, Form, Card, Nav } from 'react-bootstrap';
 import './styles.css';
+import { FaGithub } from 'react-icons/fa';
+
+
+
 
 
 
@@ -13,6 +17,13 @@ const Main = () => {
     const [weather, setWeather] = useState(null);
     const [city, setCity] = useState('');
 
+    const GithubLink = () => {
+        return (
+            <Nav.Link href="https://github.com/AleenaAlby/weather-react-now" style={{ color: 'black' }}>
+                <FaGithub /> Github
+            </Nav.Link>
+        );
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -49,33 +60,47 @@ const Main = () => {
 
     return (
         <div style={{ textAlign: 'center' }} >
-            <Navbar bg="primary" variant="dark" expand="lg">
-                <Container fluid className="nav-container">
-                <Navbar.Brand href="#home">Weather</Navbar.Brand>
+            <Navbar variant="dark" expand="lg" className="nav-container">
+                <Container fluid >
+                <Navbar.Brand className="nav-title">Weather Watchers</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ms-auto">
+                            <GithubLink />
+                        </Nav>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <div style={{height: "50px"}}></div>
-            <Form  onSubmit={handleCitySubmit}>
+            <Form  onSubmit={handleCitySubmit} className="cont mb-3">
                 <label>
-                    <input className="form-control input-box" type="text" placeholder="Enter the city name" value={city} onChange={(e) => setCity(e.target.value)} />
+
+                    <input className="form-control input-box" type="text"  aria-label="Search" aria-describedby="search-button" placeholder="Search for location" value={city} onChange={(e) => setCity(e.target.value)} />
+
                 </label>
             </Form>
             {location ? (
-                <div>
-                    <p>Current location: {location}</p>
-                    {weather ? (
-                        <div>
-                            <p>Current temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
-                            <p>Current weather: {weather.weather[0].main}</p>
-                        </div>
-                    ) : (
-                        <p>Loading weather...</p>
-                    )}
+
+                <div style={{ margin: '0 auto', maxWidth: '400px' }}>
+                    <Card>
+                        <Card.Body>
+                            <h4> Current Weather</h4>
+                            <p className="card-text">Location: {location}</p>
+                            {weather ? (
+                                <div>
+                                    <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
+                                    <p>Weather: {weather.weather[0].main}</p>
+                                </div>
+                            ) : (
+                                <p>Loading weather...</p>
+                            )}
+                        </Card.Body>
+                    </Card>
                 </div>
             ) : (
                 <p>Loading location...</p>
             )}
+
+
         </div>
     );
 };

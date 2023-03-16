@@ -1,14 +1,55 @@
+body {
+    background-image: url('/Users/aleenaalby/weather-app/public/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+.cont{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 30vh;
+
+}
+.nav-title{
+    color: #2f5d8a;
+    font-size: 32px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.input-box{
+    border-radius: 10px;
+    height: 50px;
+    padding: 10px;
+}
+
 .nav-container {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    background-color: rgba(255, 255, 255, 0.5); /* Set the opacity to 0.5 */
 }
 
+.footer {
+    font-size: 1rem;
+    text-align: center;
+    color: #2f6f8a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Set the opacity to 0.5 */
+    padding: 10px;
+}
 @media only screen and (min-width: 992px) {
     .input-box {
-        width: 500px;
+        width: 600px;
     }
 }
 
@@ -23,3 +64,4 @@
         width: 250px;
     }
 }
+
